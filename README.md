@@ -193,7 +193,6 @@ Décommenttez la ligne comme suit:
 
 Ajoutez ces lignes à la fin du fichier de configuration:
 
-5pt 3pt</span>
 
     subnet 192.168.42.0 netmask 255.255.255.0 {
             range 192.168.42.10 192.168.42.50;
@@ -207,7 +206,6 @@ Ajoutez ces lignes à la fin du fichier de configuration:
 
 Enfin, modifiez le fichier isc-dhcp-server:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/default/isc-dhcp-server
@@ -215,13 +213,11 @@ sudo nano /etc/default/isc-dhcp-server
 
 Et remplacez :
 
-5pt 3pt</span>
 
     INTERFACES=""
 
 par:
 
-5pt 3pt</span>
 
     INTERFACES="wlan0"
 
@@ -233,7 +229,6 @@ IP aux appareils qui vont se connecter à son réseau Wi-Fi
 Tout d’abord, désactiver wlan0, dans le cas où celle-ci était en
 fonctionnement:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo ifdown wlan0
@@ -242,13 +237,11 @@ sudo ifdown wlan0
 Modifiez le fichier interfaces en retirant les configurations actuelles
 de wlan0 et ajoutez-y:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/network/interfaces
 ~~~~
 
-5pt 3pt</span>
 
     auto lo
 
@@ -262,7 +255,6 @@ sudo nano /etc/network/interfaces
 
 Assignez une adresse IP static au Wi-Fi par:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo ifconfig wlan0 192.168.42.1
@@ -273,13 +265,11 @@ sudo ifconfig wlan0 192.168.42.1
 Modifiez le fichier hostapd.conf, qui va nous permettre de donner un
 ssid et un mot de passe au réseau Wi-Fi:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/hostapd/hostapd.conf
 ~~~~
 
-5pt 3pt</span>
 
     interface=wlan0
     driver=nl80211
@@ -300,7 +290,6 @@ vous utilisez une autre version de Raspberry, par exemple avec un
 dongle, le driver à utiliser dépendra du modèle du dongle.Enfin,
 modifiez le fichier:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/default/hostapd
@@ -308,19 +297,16 @@ sudo nano /etc/default/hostapd
 
 Trouvez la ligne suivante:
 
-5pt 3pt</span>
 
     #DAEMON_CONF=""
 
 Et remplacez-la par:
 
-5pt 3pt</span>
 
     DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
 De même dans /etc/init.d/hostapd:
 
-5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/init.d/hostapd
@@ -328,13 +314,11 @@ sudo nano /etc/init.d/hostapd
 
 Trouvez la ligne:
 
-5pt 3pt</span>
 
     DAEMON_CONF=
 
 Et remplacez-la par:
 
-5pt 3pt</span>
 
     DAEMON_CONF=/etc/hostapd/hostapd.conf
 
