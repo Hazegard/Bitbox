@@ -66,7 +66,6 @@ Installation des différents composants
 
 ### Installation de mySQL
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo apt-get install php5 apache2 mysql-server
@@ -79,7 +78,6 @@ MySQL:
 
 ### Installation de phpmyamin
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo apt-get install phpmyadmin
@@ -103,7 +101,6 @@ MySQL:
 
 Décompressez l’archive bitbox.zip dans le dossier /var/html/www/
 
-0pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 cp BitBox.zip /var/www/html/
@@ -113,7 +110,6 @@ unzip BitBox.zip
 
 Modifier le fichier config.php:
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /var/www/html/BitBox/config.php
@@ -122,7 +118,6 @@ sudo nano /var/www/html/BitBox/config.php
 Et modifiez la ligne \$BDD\_password par le mot de passe que vous avez
 entré précédemment:
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 <?php
@@ -147,13 +142,11 @@ d’accorder certaines permissions à l’user www-data:
 
 -   le droit d’utiliser les applications média
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo adduser www-data audio
 ~~~~
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo echo 'www-data ALL = NOPASSWD: /sbin/reboot' >> /etc/sudoers
@@ -167,7 +160,6 @@ La première étape est de paramétrer le Raspberry pour qu’il se comporte
 en émetteur Wi-Fi. Pour se faire, nous devons modifier plusieurs
 fichiers de configuration du Raspberry :
 
-0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo apt-get install hostapd isc-dhcp-server
