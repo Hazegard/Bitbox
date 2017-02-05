@@ -321,7 +321,6 @@ Et remplacez-la par:
 
 Enfin, pour lancer le Wi-FI, il suffit d’executer:
 
-8pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf
@@ -527,7 +526,6 @@ Au démarrage de BitBox, il faut exécuter deux actions:
 
 Pour cela, nous avons recours au Crontab:
 
-8pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo crontab -e
@@ -535,7 +533,6 @@ sudo crontab -e
 
 Dans lequel nous ajoutons:
 
-8pt 3pt</span>
 
 ~~~~ {style="Bash"}
 @reboot sudo /usr/sbin/hostapd /etc/hostapd/hostapd.conf
@@ -544,7 +541,6 @@ Dans lequel nous ajoutons:
 
 Avec $listOnBoot.sh$ qui est:
 
-8pt 3pt</span>
 
 ~~~~ {style="Bash"}
 #!/bin/bash
@@ -609,7 +605,7 @@ Les princpales pistes d’amélioration sont:
 -   Permettre aux utilisateurs d’ajouter leurs propres musiques à la
     base de donnée de BitBox
 
-Fonction list\_music.php {#appendix:listmusic}
+Fonction list\_music.php
 ========================
 
 
@@ -653,7 +649,7 @@ $dir = "/home/pi/Music/";
 ?>
 ~~~~
 
-Fonction random\_music.php {#appendix:randommusic}
+Fonction random\_music.php
 ==========================
 
 
@@ -669,7 +665,7 @@ SQLUpdate($SQL);
  ?>
 ~~~~
 
-Fonction get\_winner.php {#appendix:getwinner}
+Fonction get\_winner.php
 ========================
 
 
@@ -691,7 +687,7 @@ echo $res_title;
  ?>
 ~~~~
 
-Le script master.sh {#appendix:master}
+Le script master.sh
 ===================
 
 
@@ -719,7 +715,7 @@ omxplayer "${music_path}" & sleep $music_time;
 done
 ~~~~
 
-Le javascript {#appendix:javascript}
+Le javascript
 =============
 
 
@@ -742,7 +738,7 @@ function test_refresh()
 }, 500);
 ~~~~
 
-Front {#appendix:screenshots}
+Front
 =====
 
 [c]<span>0.45</span> ![Page des votes](vote.png "fig:") [fig:vote]
