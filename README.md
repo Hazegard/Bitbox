@@ -66,7 +66,6 @@ Installation des différents composants
 
 ### Installation de mySQL
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -80,7 +79,6 @@ MySQL:
 
 ### Installation de phpmyamin
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -105,7 +103,6 @@ MySQL:
 
 Décompressez l’archive bitbox.zip dans le dossier /var/html/www/
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
@@ -116,7 +113,6 @@ unzip BitBox.zip
 
 Modifier le fichier config.php:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -126,7 +122,6 @@ sudo nano /var/www/html/BitBox/config.php
 Et modifiez la ligne \$BDD\_password par le mot de passe que vous avez
 entré précédemment:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -152,14 +147,12 @@ d’accorder certaines permissions à l’user www-data:
 
 -   le droit d’utiliser les applications média
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo adduser www-data audio
 ~~~~
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -174,7 +167,6 @@ La première étape est de paramétrer le Raspberry pour qu’il se comporte
 en émetteur Wi-Fi. Pour se faire, nous devons modifier plusieurs
 fichiers de configuration du Raspberry :
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 0pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -186,7 +178,6 @@ sudo apt-get install hostapd isc-dhcp-server
 Le premier fichier à modifier est le fichier de configuration du serveur
 DHCP:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 -0pt 5pt</span>
 
 ~~~~ {style="Bash"}
@@ -195,7 +186,6 @@ sudo nano /etc/dhcp/dhcpd.conf
 
 Commentez les lignes suivantes:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 -0pt 5pt</span>
 
     #option domain-name "example.org";
@@ -203,7 +193,6 @@ Commentez les lignes suivantes:
 
 Décommenttez la ligne comme suit:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 -0pt 5pt</span>
 
     # If this DHCP server is the official DHCP server for the local
@@ -212,7 +201,6 @@ Décommenttez la ligne comme suit:
 
 Ajoutez ces lignes à la fin du fichier de configuration:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     subnet 192.168.42.0 netmask 255.255.255.0 {
@@ -227,7 +215,6 @@ Ajoutez ces lignes à la fin du fichier de configuration:
 
 Enfin, modifiez le fichier isc-dhcp-server:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -236,14 +223,12 @@ sudo nano /etc/default/isc-dhcp-server
 
 Et remplacez :
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     INTERFACES=""
 
 par:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     INTERFACES="wlan0"
@@ -256,7 +241,6 @@ IP aux appareils qui vont se connecter à son réseau Wi-Fi
 Tout d’abord, désactiver wlan0, dans le cas où celle-ci était en
 fonctionnement:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -266,14 +250,12 @@ sudo ifdown wlan0
 Modifiez le fichier interfaces en retirant les configurations actuelles
 de wlan0 et ajoutez-y:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/network/interfaces
 ~~~~
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     auto lo
@@ -288,7 +270,6 @@ sudo nano /etc/network/interfaces
 
 Assignez une adresse IP static au Wi-Fi par:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -300,14 +281,12 @@ sudo ifconfig wlan0 192.168.42.1
 Modifiez le fichier hostapd.conf, qui va nous permettre de donner un
 ssid et un mot de passe au réseau Wi-Fi:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/hostapd/hostapd.conf
 ~~~~
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     interface=wlan0
@@ -329,7 +308,6 @@ vous utilisez une autre version de Raspberry, par exemple avec un
 dongle, le driver à utiliser dépendra du modèle du dongle.Enfin,
 modifiez le fichier:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -338,21 +316,18 @@ sudo nano /etc/default/hostapd
 
 Trouvez la ligne suivante:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     #DAEMON_CONF=""
 
 Et remplacez-la par:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
 De même dans /etc/init.d/hostapd:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -361,21 +336,18 @@ sudo nano /etc/init.d/hostapd
 
 Trouvez la ligne:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     DAEMON_CONF=
 
 Et remplacez-la par:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-5pt 5pt
 5pt 3pt</span>
 
     DAEMON_CONF=/etc/hostapd/hostapd.conf
 
 Enfin, pour lancer le Wi-FI, il suffit d’executer:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 8pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -525,7 +497,6 @@ Afin d’assurer une équité dans les votes, nous avons ajouté une fonction
 qui permet d’éviter qu’une même personne ne vote plusieurs fois pour une
 même musique:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
@@ -584,7 +555,6 @@ Au démarrage de BitBox, il faut exécuter deux actions:
 
 Pour cela, nous avons recours au Crontab:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 8pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -593,7 +563,6 @@ sudo crontab -e
 
 Dans lequel nous ajoutons:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 8pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -603,7 +572,6 @@ Dans lequel nous ajoutons:
 
 Avec $listOnBoot.sh$ qui est:
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 8pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -672,7 +640,6 @@ Les princpales pistes d’amélioration sont:
 Fonction list\_music.php {#appendix:listmusic}
 ========================
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
@@ -718,7 +685,6 @@ $dir = "/home/pi/Music/";
 Fonction random\_music.php {#appendix:randommusic}
 ==========================
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
@@ -736,7 +702,6 @@ SQLUpdate($SQL);
 Fonction get\_winner.php {#appendix:getwinner}
 ========================
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
@@ -760,7 +725,6 @@ echo $res_title;
 Le script master.sh {#appendix:master}
 ===================
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="Bash"}
@@ -790,7 +754,6 @@ done
 Le javascript {#appendix:javascript}
 =============
 
-<span>minipage=,bgcolor=DOS~B~K,margin=0pt 4pt 0pt 4pt, trim=-15pt 5pt
 10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
