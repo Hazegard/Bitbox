@@ -170,7 +170,6 @@ sudo apt-get install hostapd isc-dhcp-server
 Le premier fichier à modifier est le fichier de configuration du serveur
 DHCP:
 
--0pt 5pt</span>
 
 ~~~~ {style="Bash"}
 sudo nano /etc/dhcp/dhcpd.conf
@@ -178,14 +177,12 @@ sudo nano /etc/dhcp/dhcpd.conf
 
 Commentez les lignes suivantes:
 
--0pt 5pt</span>
 
     #option domain-name "example.org";
     #option domain-name-servers ns1.example.org, ns2.example.org;
 
 Décommenttez la ligne comme suit:
 
--0pt 5pt</span>
 
     # If this DHCP server is the official DHCP server for the local
     # network, the authoritative directive should be uncommented.
@@ -473,7 +470,6 @@ Afin d’assurer une équité dans les votes, nous avons ajouté une fonction
 qui permet d’éviter qu’une même personne ne vote plusieurs fois pour une
 même musique:
 
-10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 if (($id=valider("vote")) && (!isset($_COOKIE["Voted"])))
@@ -616,7 +612,6 @@ Les princpales pistes d’amélioration sont:
 Fonction list\_music.php {#appendix:listmusic}
 ========================
 
-10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 <?php
@@ -661,7 +656,6 @@ $dir = "/home/pi/Music/";
 Fonction random\_music.php {#appendix:randommusic}
 ==========================
 
-10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 <?php
@@ -678,7 +672,6 @@ SQLUpdate($SQL);
 Fonction get\_winner.php {#appendix:getwinner}
 ========================
 
-10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 <?php
@@ -701,7 +694,6 @@ echo $res_title;
 Le script master.sh {#appendix:master}
 ===================
 
-10pt 3pt</span>
 
 ~~~~ {style="Bash"}
 #!/bin/bash
@@ -730,7 +722,6 @@ done
 Le javascript {#appendix:javascript}
 =============
 
-10pt 3pt</span>
 
 ~~~~ {style="PHPtest"}
 var auto_refresh_table = setInterval(
